@@ -1,0 +1,11 @@
+variable "resource_group_name" {}
+variable "location" {}
+variable "asp_os_type" {}
+variable "webapp_name" {}
+variable "asp_name" {}
+variable "sku" {}
+variable "subnet_id" {}
+variable "backup_retention_in_days" {}
+variable "private_link_name" {}
+variable "private_link_subnet_id" {}
+variable "tags" {}
