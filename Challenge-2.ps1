@@ -36,13 +36,14 @@ function GetWindowsVMInstanceMetadata {
     
 }
 
-#Connect-AzAccount
+Write-Host "Login to Azure..."
+Connect-AzAccount
 $ErrorActionPreference = 'Stop'
 $WarningPreference = 'SilentlyContinue'
 $Subscription = (Get-AzSubscription | Where-Object { $_.State -eq "Enabled" }) | Out-GridView -Title "Select Azure Subscription..." -PassThru
 
 Write-Host "Selecting subscription context..."
-Select-AzSubscription -SubscriptionObject $Subscription
+Select-AzSubscription -SubscriptionObject $Subscription | Out-Null
 Write-Host "$($Subscription.Name) Subscription is selected as context"
 
 Write-Host "Checking for $($VM.Name) virtual machine in $($Subscription.Name) subscription"

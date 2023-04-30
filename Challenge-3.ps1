@@ -1,3 +1,13 @@
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)]
+    [string]
+    $Object,
+
+    [Parameter(Mandatory=$true)]
+    [string]
+    $Key
+)
 Function Get-KeyValueFromObject([Parameter(Mandatory=$true)]$Object,[Parameter(Mandatory=$true)]$Key) {
 
     if(!$Key){Write-Error "Supply value for 'Key' parameter"}
@@ -29,6 +39,7 @@ Function Get-KeyValueFromObject([Parameter(Mandatory=$true)]$Object,[Parameter(M
     return $TempObj
 }
 
-Get-KeyValueFromObject -Object '{"a":{"b":{"c":"d"}}}' -Key 'a/b/c'
+Get-KeyValueFromObject -Object $Object -Key $Key
+#Get-KeyValueFromObject -Object '{"a":{"b":{"c":"d"}}}' -Key 'a/b/c'
 
-Get-KeyValueFromObject -Object '{"x":{"y":{"z":"a"}}}' -Key 'x/y/z'
+#Get-KeyValueFromObject -Object '{"x":{"y":{"z":"a"}}}' -Key 'x/y/z'
